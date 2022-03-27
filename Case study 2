@@ -1,0 +1,237 @@
+package com.item;
+
+class Book extends WrittenItem {
+
+	public Book() { // constructor same as class name
+		super();
+	}
+
+	public Book(int identityNumber, String title) {
+		System.out.println("com.item.Book");
+	}
+}
+
+
+
+package com.item;
+
+class CD extends MediaItem {
+	private String artist;
+	private String genre;
+
+	//constructor
+	public CD() {
+		super();
+	}
+
+	//setter and getter
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+
+}
+
+
+
+
+
+package com.item;
+
+public abstract class Item {
+
+	private int uniqueIdNo;
+	private String title;
+	private int numberOfCopies;
+	
+	//  Constructor
+	public Item() {
+		System.out.println("com.item.Item number is :" + uniqueIdNo);
+	}
+
+	// Constructor with param
+	public Item(int uniqueIdNo, int numberOfCopies, String title) {
+		System.out.println("Constructor with param");
+	}
+
+
+	//now setter and getter method
+	public int getUniqueIdNo() {
+		return uniqueIdNo;
+	}
+
+	public void setUniqueIdNo(int uniqueIdNo) {
+		this.uniqueIdNo = uniqueIdNo;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getNumberOfCopies() {
+		return numberOfCopies;
+	}
+
+	public void setNumberOfCopies(int numberOfCopies) {
+		this.numberOfCopies = numberOfCopies;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Item [uniqueIdNo=" + uniqueIdNo + ", title=" + title + ", numberOfCopies=" + numberOfCopies + "]";
+	}
+
+	//methods for checkin &checkout
+	public void checkIn() {
+		numberOfCopies += 1;
+	}
+
+	public void checkOut() {
+		numberOfCopies -= 1;
+	}
+}
+
+
+
+
+package com.item;
+
+
+class JournalPaper extends WrittenItem {
+	private int publishYear;
+
+	public JournalPaper() { // constructor
+		super();
+	}
+
+	//setter and getter
+	public int getPublishYear() {
+		return publishYear;
+	}
+
+	public void setPublishYear(int publishYear) {
+		this.publishYear = publishYear;
+	}
+
+
+}
+
+
+
+
+
+
+package com.item;
+
+public class Mainto{
+
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+
+
+}
+
+
+
+
+
+package com.item;
+
+abstract class MediaItem extends Item {
+	private int runTime;
+
+//setter and getter
+	public int getRunTime() {
+		return runTime;
+	}
+
+	public void setRunTime(int runTime) {
+		this.runTime = runTime;
+	}
+
+}
+
+
+
+
+
+package com.item;
+
+class Video extends MediaItem {
+	private String director;
+	private String genre;
+	private int releaseYear;
+
+	//constructor
+	public Video() { // constructor
+		super();
+	}
+
+	//setter and getter
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+
+	public void setReleaseYear(int releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+
+
+
+}
+
+
+
+
+
+package com.item;
+
+abstract class WrittenItem extends Item {
+	private String author;
+
+//setter and getter	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+}
